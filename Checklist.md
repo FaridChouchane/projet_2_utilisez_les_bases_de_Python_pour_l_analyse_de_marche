@@ -1,0 +1,8 @@
+- [x] Initialiser le projet
+- [x] Installer les dépendances (`bs4`, `requests`)
+- [x] Récupérer la page web
+- [ ] Parser le HTML avec BeautifulSoup
+- [ ] Extraire les informations des livres
+- [ ] Sauvegarder les données dans un fichier CSV
+- [ ] Tester le script
+- [ ] Documenter le code
