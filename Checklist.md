@@ -2,6 +2,7 @@
 - [x] Installer les dépendances (`bs4`, `requests`)
 - [x] Récupérer la page web
 - [ ] Parser le HTML avec BeautifulSoup
+- [ ] Naviguer de page en page avec le script
 - [ ] Extraire les informations des livres
 - [ ] Sauvegarder les données dans un fichier CSV
 - [ ] Tester le script
