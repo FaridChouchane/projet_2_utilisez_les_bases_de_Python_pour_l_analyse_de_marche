@@ -7,10 +7,12 @@
 from bs4 import BeautifulSoup
 import requests
 from pprint import pprint
+import csv
+
 
 #######################################
 ##                                   ##
-##           URL                     ##
+##                URL                ##
 ##                                   ##
 #######################################
 
@@ -33,19 +35,50 @@ with open("book.html", "w", encoding = "utf-8") as book:
 ##                                   ##
 #######################################   
 
+with open("scrapped_books.csv", 'w', newline='', encoding='utf-8') as csvfile:
+    fieldnames = [
+        'universal_product_code (upc)',
+        'title',
+        'price_including_tax',
+        'price_excluding_tax',
+        'number_available',
+        'product_description',
+        'category',
+        'review_rating',
+        'image_url'
+    ]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    
+    writer.writeheader()
 
-#  product_page_url
+#######################################
+##                                   ##
+##   RECUPERATION  product_page_url  ##
+##                                   ##
+#######################################   
+print("")
+print("#" * 20, "URLs des livres", "#" * 20)
+print("")
 
-ppurl = soup.find_all("h3")
+urls = []
 
-for p in ppurl:
-    les_a = p.find_all('a')
-    for a in les_a:
-        for ppurl in a:
-            url = URL + a['href']
-            pprint(url)
+for i in soup.find_all("h3"):
+    a = i.find('a')
+    urls.append(URL + a['href'])
 
-# universal_product_code (upc)
+for url in urls:    
+    print(url)
+
+print("")
+print("#" * 20, "          ", "#" * 20)
+print("")
+#######################################
+##                                   ##
+##     RECUPERATION                  ##
+##     universal_product_code (upc)  ##
+##                                   ##
+#######################################
+
 print("")
 print("#" * 20)
 print("")
